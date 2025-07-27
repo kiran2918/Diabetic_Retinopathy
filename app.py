@@ -7,18 +7,11 @@ from skimage import exposure
 import os
 import gdown
 
-# --------------------------------
-# 🧾 Page Configuration
-# --------------------------------
 st.set_page_config(
     page_title="InfernoSight | Retina Classifier",
     page_icon="🩸",
     layout="centered"
 )
-
-# --------------------------------
-# 🧠 Sidebar - Branding + Info
-# --------------------------------
 with st.sidebar:
     st.title("🩸 InfernoSight")
     st.markdown("""
@@ -38,9 +31,6 @@ with st.sidebar:
     😈 Summoned from shadows. Diagnoses with precision.
     """)
 
-# --------------------------------
-# 🧠 Model Loading (from Google Drive)
-# --------------------------------
 model_path = "svm_model.pkl"
 
 if not os.path.exists(model_path):
@@ -55,9 +45,6 @@ except Exception as e:
     st.error(f"❌ Failed to load model: {e}")
     st.stop()
 
-# --------------------------------
-# 🖼️ Upload Retina Image
-# --------------------------------
 st.title("😈 InfernoSight | Retina Classifier")
 st.caption("Built in chaos. Diagnoses with calm.")
 
@@ -106,8 +93,5 @@ if uploaded_file is not None:
     except Exception as e:
         st.error(f"❌ Error during prediction: {e}")
 
-# --------------------------------
-# 🧾 Footer
-# --------------------------------
 st.markdown("---")
 st.caption("🧠 Built by King | Summoned from the shadows 😈 | Powered by SVM and hustle.")
