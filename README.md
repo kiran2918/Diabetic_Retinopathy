@@ -1,4 +1,4 @@
-🔬 InfernoSight: Diabetic Retinopathy Detection
+##🔬 InfernoSight: Diabetic Retinopathy Detection
 Detect diabetic retinopathy severity from retina images using a handcrafted image processing pipeline and an SVM classifier.
 
 <!-- optional if you add a visual -->
