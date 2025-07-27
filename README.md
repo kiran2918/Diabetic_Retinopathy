@@ -1,88 +1,73 @@
-#🔬 InfernoSight: Diabetic Retinopathy Detection
-Detect diabetic retinopathy severity from retina images using a handcrafted image processing pipeline and an SVM classifier.
+# 👁️‍🗨️ Diabetic Retinopathy Detection App
 
-<!-- optional if you add a visual -->
+A fast, themed diagnostic app that predicts diabetic retinopathy from retina images using a trained **SVM model**.  
+Built with **Streamlit**, the app enables users to upload retina scans and receive instant DR stage predictions.
 
-🚀 Demo
-🔗 Try it live on Hugging Face Spaces
-📦 Model: SVM trained on processed retinal images
-🖼️ Input: JPG, PNG, or JPEG retina scans
-📊 Output: DR severity class (0 to 4) + risk level
+> 😈 Project styled with a dark, devilish theme — made by **King**
 
-📂 Project Structure
-bash
-Copy
-Edit
-Diabetic_Detection/
-│
-├── app.py                 # Streamlit app
-├── main.py                # Training and pipeline script:(coming soon)
-├── svm_model.pkl          # Trained SVM model
-├── data/
-│   └── train.csv          # Training metadata
-├── notebook.ipynb         # EDA and pipeline dev notebook
-├── .gitignore
-└── README.md              # Project documentation
-🧠 DR Stages Explained
-Class	Stage	Risk Level
-0	No DR	✅ Low risk
-1	Mild	⚠️ Mild risk
-2	Moderate	⚠️ Moderate risk
-3	Severe	❗ High risk – needs attention
-4	Proliferative DR	🚨 Critical – urgent care needed
+---
 
-🧰 Tech Stack
-Python 3.10+
+## 🧠 Model
 
-OpenCV, NumPy, scikit-image
+- **Type**: Support Vector Machine (SVM)
+- **Input**: Preprocessed fundus images
+- **Output**: One of five stages of Diabetic Retinopathy (0–4)
+- **Model size**: ~235 MB (**excluded** from GitHub repo)
 
-scikit-learn, joblib
+📦 [Download model file](https://drive.google.com/file/d/1ULij3MiZPSWJ-EZaClFBtHZAmjOL_eIk/view?usp=sharing)  
+⬇️ Save `svm_model.pkl` in the project root before running the app.
 
-Streamlit for web interface
+---
 
-⚙️ Features
-🧠 Image pre-processing pipeline: grayscale → resize → histogram equalization
+## 🧪 DR Stage Labels
 
-🧪 SVM model trained on structured retinal image features
+| Code | Diagnosis           | Risk Level                     |
+|------|---------------------|--------------------------------|
+| 0    | No DR               | ✅ Low risk                     |
+| 1    | Mild DR             | ⚠️ Mild risk                    |
+| 2    | Moderate DR         | ⚠️ Moderate risk                |
+| 3    | Severe DR           | ❗ High risk – needs attention  |
+| 4    | Proliferative DR    | 🚨 Critical – urgent attention  |
 
-🎯 Accurate risk prediction with intuitive UI
+---
 
-💡 Fully reproducible with .ipynb and main.py training script
+## ⚙️ Setup Instructions
 
-📦 Installation & Run
-Clone the repo
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/kiran2918/Diabetic_Retinopathy.git
+   cd Diabetic_Retinopathy
+💻 Features
+Upload retina scan images (.jpg, .png)
 
-bash
-Copy
-Edit
-git clone https://github.com/kiran2918/diabetic_Retinopathy.git
-cd diabetic_Retinopathy
-Install dependencies
+Real-time classification using SVM
 
-bash
-Copy
-Edit
-pip install -r requirements.txt
-Run the app
+Histogram Equalization + Grayscale preprocessing
 
-bash
-Copy
-Edit
-streamlit run app.py
-🌐 Screenshots
-Upload	Prediction
+Fully interactive UI built on Streamlit
 
-(Add screenshots in a docs/ folder or remove this section)
+Devil-inspired theme 🔥
 
-👨‍⚕️ Use Case
-For early screening of diabetic retinopathy in telemedicine setups
+📸 Screenshots (Optional)
+You can add screenshots like:
 
-Educational and prototyping use in healthcare AI
+assets/upload.png (upload page)
 
-🙋‍♂️ Author
-👑 Built by King
-🧠 Fueled by vision, powered by SVM
-😈 Summoned from the shadows — just like DR sneaks in
+assets/result.png (prediction result)
 
-⚠️ Disclaimer
-This is a proof-of-concept educational project. It is not approved for medical diagnosis or clinical use.
+🛡️ Disclaimer
+This app is for educational and research purposes only.
+It is not a replacement for medical advice or diagnosis.
+Always consult a licensed medical professional for clinical decisions.
+
+🧾 Tech Stack
+Python
+Streamlit
+Scikit-learn
+OpenCV
+scikit-image
+PIL (Pillow)
+
+😈 Footer
+Built with 🔥 darkness & code by King
+Guided by shadows. Powered by vision.
