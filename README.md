@@ -48,12 +48,14 @@ Fully interactive UI built on Streamlit
 
 Devil-inspired theme 🔥
 
-📸 Screenshots (Optional)
-You can add screenshots like:
 
-assets/upload.png (upload page)
 
-assets/result.png (prediction result)
+App:
+https://diabetic-retinopathy.streamlit.app/
+
+
+
+
 
 📈 Final Summary for README :
 🧪 Model Performance
@@ -67,10 +69,15 @@ Struggles with Severe and Proliferative DR due to class imbalance
 Model built with histogram-equalized retina images and a classical SVM classifier
 
 
+
+
 🛡️ Disclaimer
 This app is for educational and research purposes only.
 It is not a replacement for medical advice or diagnosis.
 Always consult a licensed medical professional for clinical decisions.
+
+
+
 
 🧾 Tech Stack
 Python
@@ -79,6 +86,8 @@ Scikit-learn
 OpenCV
 scikit-image
 PIL (Pillow)
+
+
 
 😈 Footer
 Built with 🔥 darkness & code by King
