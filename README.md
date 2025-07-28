@@ -55,6 +55,18 @@ assets/upload.png (upload page)
 
 assets/result.png (prediction result)
 
+📈 Final Summary for README :
+🧪 Model Performance
+
+Accuracy: 72.03% on test set (733 samples)
+
+Performs best in detecting No DR and Moderate DR
+
+Struggles with Severe and Proliferative DR due to class imbalance
+
+Model built with histogram-equalized retina images and a classical SVM classifier
+
+
 🛡️ Disclaimer
 This app is for educational and research purposes only.
 It is not a replacement for medical advice or diagnosis.
