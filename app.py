@@ -35,10 +35,8 @@ with st.sidebar:
     """)
 
 # Model Loading
-model_path = "models/svm_model.pkl"
+model_path = "svm_model.pkl"
 model_url = "https://drive.google.com/uc?id=1ULij3MiZPSWJ-EZaClFBtHZAmjOL_eIk"
-
-os.makedirs("models", exist_ok=True)
 
 if not os.path.exists(model_path):
     with st.spinner("🔁 Downloading SVM model..."):
