@@ -7,11 +7,14 @@ from skimage import exposure
 import os
 import gdown
 
+# Streamlit Page Configuration
 st.set_page_config(
     page_title="InfernoSight | Retina Classifier",
     page_icon="🩸",
     layout="centered"
 )
+
+# Sidebar UI
 with st.sidebar:
     st.title("🩸 InfernoSight")
     st.markdown("""
@@ -31,12 +34,15 @@ with st.sidebar:
     😈 Summoned from shadows. Diagnoses with precision.
     """)
 
-model_path = "svm_model.pkl"
+# Model Loading
+model_path = "models/svm_model.pkl"
+model_url = "https://drive.google.com/uc?id=1ULij3MiZPSWJ-EZaClFBtHZAmjOL_eIk"
+
+os.makedirs("models", exist_ok=True)
 
 if not os.path.exists(model_path):
     with st.spinner("🔁 Downloading SVM model..."):
-        url = "https://drive.google.com/uc?id=1ULij3MiZPSWJ-EZaClFBtHZAmjOL_eIk"
-        gdown.download(url, model_path, quiet=False)
+        gdown.download(model_url, model_path, quiet=False)
 
 try:
     model = joblib.load(model_path)
@@ -45,20 +51,22 @@ except Exception as e:
     st.error(f"❌ Failed to load model: {e}")
     st.stop()
 
+# App Title
 st.title("😈 InfernoSight | Retina Classifier")
 st.caption("Built in chaos. Diagnoses with calm.")
 
+# Image Upload
 uploaded_file = st.file_uploader("🖼️ Upload a retina image", type=["jpg", "jpeg", "png"])
 
-if uploaded_file is not None:
+if uploaded_file:
     st.image(uploaded_file, caption="📍 Uploaded Retina", use_container_width=True)
 
     try:
-        # Step 1: Convert to grayscale
+        # Step 1: Grayscale
         image = Image.open(uploaded_file).convert("L")
         image_np = np.array(image)
 
-        # Step 2: Resize to model's input shape
+        # Step 2: Resize to 128x128
         image_resized = cv2.resize(image_np, (128, 128))
 
         # Step 3: Histogram equalization
@@ -70,7 +78,7 @@ if uploaded_file is not None:
         # Step 5: Predict
         prediction = model.predict(image_flat)[0]
 
-        # Labels and Risk Levels
+        # Prediction Mapping
         class_names = {
             0: "No DR",
             1: "Mild DR",
@@ -86,6 +94,7 @@ if uploaded_file is not None:
             4: "🚨 Critical – urgent care required"
         }
 
+        # Display Result
         st.markdown("### 🔍 Prediction Result")
         st.success(f"**{class_names[prediction]}**")
         st.info(f"**{risk_level[prediction]}**")
@@ -93,5 +102,6 @@ if uploaded_file is not None:
     except Exception as e:
         st.error(f"❌ Error during prediction: {e}")
 
+# Footer
 st.markdown("---")
 st.caption("🧠 Built by King | Summoned from the shadows 😈 | Powered by SVM and hustle.")
